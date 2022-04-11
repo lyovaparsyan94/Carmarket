@@ -1,4 +1,5 @@
 from person import Person
+# from seller import ashot
 
 
 class Buyer(Person):
@@ -8,7 +9,7 @@ class Buyer(Person):
         self.spent_money = 0
         self.bought_cars = []
 
-    def buy(self):
+    def buy(self, car_name):
         pass
 
     def return_car(self):
@@ -25,7 +26,7 @@ class Buyer(Person):
         pass
 
 
-Ashot = Buyer('Ashot', 'Stepanyan', 'Erevan', 5000)
-
-
-print(Ashot._change_money(5000))
+# Ashot = Buyer('Ashot', 'Stepanyan', 'Erevan', 5000)
+#
+#
+# print(Ashot._change_money(5000))

@@ -5,5 +5,5 @@ class Person:
         self.city = city
 
 
-
-
+a = Person("Ashot", "Petrosyan", "Erevan")
+print(a.name)

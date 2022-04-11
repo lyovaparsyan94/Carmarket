@@ -1,7 +1,16 @@
-cars = {"Armen": {1: "Opel Astra", 2: "Opel Zafira", 3: "Nissan"}, "Ashot": {1: "BMW", 2: "Volkswagen"}}
+from seller import Seller
+from seller import ashot
 
-a = cars.get("Armen", 404)
 
-for i in a:
-    print(a[i])
-    if 
+class CarMarket:
+    def __init__(self):
+        self.cars = {}
+
+    def add_car(self, seller_name):
+        if isinstance(seller_name, Seller):
+            self.cars[seller_name] = seller_name._Seller__get_available_cars()
+            # return self.cars
+
+car_market = CarMarket()
+print(car_market.add_car(ashot))
+print(car_market.cars)
