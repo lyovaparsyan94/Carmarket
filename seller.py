@@ -44,8 +44,15 @@ class Seller(Person):
         except AttributeError as error:
             print(error, "Such car wasn't sold, so you can't return it")
 
+    def getavialable_cars(self):
+        return self.__get_available_cars()
+
     def __get_available_cars(self):
-        print(self.car_park)
+        if isinstance(self, Seller) and len(self.car_park) > 0:
+            car_park = self.car_park
+            return car_park
+        else:
+            return "Car park is empty"
 
     def _check_discount(self, car_name):
         print("Do you want to make discount for Buyer: y or n")
@@ -60,7 +67,7 @@ class Seller(Person):
         time_string = time.strftime("%m/%d/%Y", named_tuple)
         self.sold_cars.append([car_name, price, self.name, self.surname, self.city, time_string])
 
-    def __str__(self):
+    def __repr__(self):
         initials = self.name
         return initials
 
@@ -71,7 +78,7 @@ ashot.car_park["Nissan"] = 4000
 ashot.car_park["Mercedes"] = 4000
 # ashot.sell("Nissan")
 # ashot.sell("BMW")
-# print(ashot.car_park)
+# print(ashot.__get_available_cars)
 # print(ashot.sold_cars, ashot.sold_cars)
 # ashot.return_car('Nissan')
 # ashot._check_discount("Nissan")

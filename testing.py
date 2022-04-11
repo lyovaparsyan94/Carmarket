@@ -8,7 +8,7 @@ class CarMarket:
 
     def add_car(self, seller_name):
         if isinstance(seller_name, Seller):
-            self.cars[seller_name] = seller_name._Seller__get_available_cars()
+            self.cars[seller_name] = seller_name.getavialable_cars()
             # return self.cars
 
 car_market = CarMarket()
