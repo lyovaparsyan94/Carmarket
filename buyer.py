@@ -27,6 +27,4 @@ class Buyer(Person):
 
 
 # Ashot = Buyer('Ashot', 'Stepanyan', 'Erevan', 5000)
-#
-#
 # print(Ashot._change_money(5000))

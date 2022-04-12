@@ -10,10 +10,11 @@ class Seller(Person):
         self.sold_cars = []
 
     def __add_discount(self, car_name):
-        percent = int(input("Select discount rate.. "))
+        percent = 10
         price = self.car_park[car_name]
         discounted_price = price - (price / 100 * percent)
         self.car_park[car_name] = discounted_price
+        print(f"You have received discount {percent}%, cost of this car will be {discounted_price}$ instead of {price}$")
         return discounted_price
 
     def sell(self, car_name):
@@ -55,12 +56,12 @@ class Seller(Person):
             return "Car park is empty"
 
     def _check_discount(self, car_name):
-        print("Do you want to make discount for Buyer: y or n")
+        print("Do you want to make discount 10% for Buyer: y or n")
         answer = input("Make your choice:  ").lower()
         if answer == "y":
             return self.__add_discount(car_name=car_name)
         elif answer == "n":
-            return "Sorry, for that car isn't discount"
+            return "Sorry, for that car there is not discount"
 
     def add_sold_car(self, car_name, price):
         named_tuple = time.localtime()
@@ -81,4 +82,4 @@ ashot.car_park["Mercedes"] = 4000
 # print(ashot.__get_available_cars)
 # print(ashot.sold_cars, ashot.sold_cars)
 # ashot.return_car('Nissan')
-# ashot._check_discount("Nissan")
+# print(ashot._check_discount("Nissan"))

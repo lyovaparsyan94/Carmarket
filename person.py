@@ -4,6 +4,3 @@ class Person:
         self.surname = surname
         self.city = city
 
-
-a = Person("Ashot", "Petrosyan", "Erevan")
-print(a.name)
