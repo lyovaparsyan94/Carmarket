@@ -8,13 +8,14 @@ class CarMarket:
     def __init__(self):
         self.cars = {}
 
-    def set_discount(self, seller_name, car_name):
-        if bool(self.cars):
-            return True
-        elif not bool(self.cars):
-            return False
+    def get_sold_car_history(self, seller_name):
+        return self._get_sold_car_history
+
+    def _get_sold_car_history(self, seller_name):
+        if isinstance(seller_name, Seller):
+            return seller_name.sold_cars
 
 
 car_market = CarMarket()
 
-print(car_market.set_discount(ashot, "BMW"))
+# print(car_market._get_sold_car_history(ashot))

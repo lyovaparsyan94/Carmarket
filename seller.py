@@ -31,19 +31,21 @@ class Seller(Person):
         return self.__money
 
     def return_car(self, car_name):
-        print(f" Before return money was {self.__money}")
+        # print(f" Before return money was {self.__money}")
         try:
             for i in range(len(self.sold_cars)):
-                if self.sold_cars[i][0] == f"{car_name}":
+                print("Checking wallet...")
+                if self.sold_cars[i][0] == f"{car_name}" and self.__money >= self.sold_cars[i][1]:
+                    print(f" {self.sold_cars[i][1]} $ will be withdrawn from the wallet.")
                     self.__money -= self.sold_cars[i][1]
                     self.car_park[car_name] = self.sold_cars[i][1]
                     self.sold_cars.remove(self.sold_cars[i])
                     print(f" After return money is {self.__money}, in car park there are: {self.car_park}, "
                           f"sold cars: {self.__get_available_cars()}")
-                    break
+                    return "ok"
                 raise AttributeError
         except AttributeError as error:
-            print(error, "Such car wasn't sold, so you can't return it")
+            return error, "Such car wasn't sold, so you can't return it"
 
     def getavialable_cars(self):
         return self.__get_available_cars()
@@ -78,6 +80,7 @@ ashot.car_park['BMW'] = 3000
 ashot.car_park["Nissan"] = 4000
 ashot.car_park["Mercedes"] = 4000
 # ashot.sell("Nissan")
+# print(ashot.sold_cars)
 # ashot.sell("BMW")
 # print(ashot.__get_available_cars)
 # print(ashot.sold_cars, ashot.sold_cars)
