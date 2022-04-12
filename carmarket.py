@@ -48,17 +48,23 @@ class CarMarket:
         if isinstance(seller_name, Seller):
             return seller_name.return_car(car_name=car_name)
 
-    def _get_seller_available_cars(self):
-        return
+    def get_seller_avialable_cars(self, seller_name):
+        return self._get_seller_available_cars(seller_name=seller_name)
 
-    def get_car_available_discount(self):
-        pass
+    def _get_seller_available_cars(self, seller_name):
+        if isinstance(seller_name, Seller):
+            return seller_name.getavialable_cars()
+
+    def get_car_available_discount(self, seller_name, car_name):
+        if isinstance(seller_name, Seller):
+            return seller_name._check_discount(car_name=car_name)
 
 car_market = CarMarket()
 # # print(car_market.add_car(ashot))
 # car_market.add_car(ashot)
 # print(car_market.cars)
 # print(car_market._get_sold_car_history(ashot))
-ashot.sell("Nissan")
+# ashot.sell("Nissan")
 # ashot.sell("BMW")
-print(car_market.return_car(ashot, "Nissn"))
+# print(car_market.return_car(ashot, "Nissn"))
+print(car_market.get_car_available_discount(ashot, "BMW"))
