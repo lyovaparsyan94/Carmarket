@@ -42,12 +42,12 @@ class Seller(Person):
                     self.sold_cars.remove(self.sold_cars[i])
                     print(f" After return money is {self.__money}, in car park there are: {self.car_park}, "
                           f"sold cars: {self.__get_available_cars()}")
-                    return "ok"
+                    return "Successful"
                 raise AttributeError
         except AttributeError as error:
             return error, "Such car wasn't sold, so you can't return it"
 
-    def getavialable_cars(self):
+    def get_avialable_cars(self):
         return self.__get_available_cars()
 
     def __get_available_cars(self):

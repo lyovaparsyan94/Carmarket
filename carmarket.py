@@ -1,16 +1,16 @@
 from seller import Seller
 from seller import ashot
-from buyer import Buyer
+from buyer import gnord
 import time
 
 
 class CarMarket:
     def __init__(self):
-        self.cars = {'Ashot': {'BMW': 3000, 'Nissan': 4000, 'Mercedes': 4000}}
+        self.cars = {}
 
     def add_car(self, seller_name):
         if isinstance(seller_name, Seller):
-            self.cars[f'{seller_name}'] = seller_name.getavialable_cars()
+            self.cars[f'{seller_name}'] = seller_name.get_avialable_cars()
             return car_market.cars
         else:
             return "No permission"
@@ -38,6 +38,9 @@ class CarMarket:
         return self._get_sold_car_history(seller_name=seller_name)
 
     def _get_sold_car_history(self, seller_name):
+        return self._get_sold_cars_history(seller_name=seller_name)
+
+    def _get_sold_cars_history(self, seller_name):
         if isinstance(seller_name, Seller):
             return seller_name.sold_cars
 
@@ -53,18 +56,17 @@ class CarMarket:
 
     def _get_seller_available_cars(self, seller_name):
         if isinstance(seller_name, Seller):
-            return seller_name.getavialable_cars()
+            return seller_name.get_avialable_cars()
 
     def get_car_available_discount(self, seller_name, car_name):
         if isinstance(seller_name, Seller):
             return seller_name._check_discount(car_name=car_name)
 
+
 car_market = CarMarket()
-# # print(car_market.add_car(ashot))
 # car_market.add_car(ashot)
 # print(car_market.cars)
-# print(car_market._get_sold_car_history(ashot))
-# ashot.sell("Nissan")
-# ashot.sell("BMW")
-# print(car_market.return_car(ashot, "Nissn"))
-print(car_market.get_car_available_discount(ashot, "BMW"))
+print(gnord.buy(ashot, "Nissan"))
+print(gnord.buy(ashot, "BMW"))
+
+
