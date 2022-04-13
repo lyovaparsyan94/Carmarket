@@ -96,7 +96,7 @@ class Seller(Person):
         # print(f" Before return money was {self.__money}")
         try:
             for i in range(len(self.sold_cars)):
-                print("Checking wallet seller's...")
+                print(f"Checking {self.name}'s wallet ...")
                 if self.sold_cars[i][0] == f"{car_name}" and self.__money >= self.sold_cars[i][1]:
                     print(f" {self.sold_cars[i][1]} $ will be withdrawn from the wallet.")
                     self.__money -= self.sold_cars[i][1]
