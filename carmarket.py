@@ -1,6 +1,8 @@
 from seller import Seller
 from seller import ashot
 from buyer import gnord
+from buyer import Buyer
+
 import time
 
 
@@ -66,7 +68,9 @@ class CarMarket:
 car_market = CarMarket()
 # car_market.add_car(ashot)
 # print(car_market.cars)
-print(gnord.buy(ashot, "Nissan"))
+# print(gnord.buy(ashot, "Nissan"))
+# print(gnord.buy(ashot, "Mercedes"))
 print(gnord.buy(ashot, "BMW"))
-
-
+gnord.return_car(ashot, "BMW")
+print(car_market.cars)
+# print(car_market.get_sold_car_history(ashot))

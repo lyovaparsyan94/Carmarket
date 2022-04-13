@@ -1,4 +1,5 @@
 from person import Person
+# from buyer import Buyer
 import time
 
 
@@ -14,7 +15,7 @@ class Seller(Person):
         price = self.car_park[car_name]
         discounted_price = price - (price / 100 * percent)
         self.car_park[car_name] = discounted_price
-        print(f"You have received discount {percent}%, cost of this car will be {discounted_price}$ instead of {price}$")
+        # print(f"You have received discount {percent}%, cost of this car will be {discounted_price}$ instead of {price}$")
         return discounted_price
 
     def sell(self, car_name):
@@ -23,8 +24,10 @@ class Seller(Person):
         self.__change_money(price=price)
         self.add_sold_car(car_name=car_name, price=price)
         del self.car_park[car_name]
-        print(f"Seller {self.name} {self.surname} earn {price} and has {self.__money}$  in wallet after "
-              f"selling {car_name}")
+        # if isinstance(car_market, ):
+        #     car_market.add_car(seller_name=self.name)
+        # print(f"Seller {self.name} {self.surname} earn {price} and has {self.__money}$  in wallet after "
+        #       f"selling {car_name}")
 
     def __change_money(self, price):
         self.__money += price
@@ -58,8 +61,9 @@ class Seller(Person):
             return "Car park is empty"
 
     def _check_discount(self, car_name):
-        print("Do you want to make discount 10% for Buyer: y or n")
-        answer = input("Make your choice:  ").lower()
+        # print("Do you want to make discount 10% for Buyer: y or n")
+        # answer = input("Make your choice:  ").lower()
+        answer = "y"
         if answer == "y":
             return self.__add_discount(car_name=car_name)
         elif answer == "n":

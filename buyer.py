@@ -1,5 +1,6 @@
 from person import Person
 from seller import Seller
+from carmarket import car_market
 
 
 class Buyer(Person):
@@ -16,11 +17,25 @@ class Buyer(Person):
             price = seller_name.sold_cars[-1][-5]
             self.change_money(price=price)
             self.spent_money += price
-            print(f"In buyer {gnord} wallet is {self.__money}")
+            # print(f"In buyer {gnord} was withdrawn {price}, in wallet is {self.__money}")
+            car_market.cars[]
             return self.bought_cars
 
-    def return_car(self):
-        pass
+    def return_car(self, seller_name, car_name):
+        print(f'buyers money - {self.__money}, spent money - {self.spent_money}, bought cars - {self.bought_cars}')
+        print(f"Searching in list related with {seller_name}: ", self.bought_cars[seller_name])
+        sellers_purchases = self.bought_cars[seller_name]
+        for i in sellers_purchases:
+            if i[0] ==car_name and i[2] == f'{seller_name}':
+                print(f"Two-factor verification by seller's name '{seller_name}' and car brand '{car_name}'")
+                self.__money += i[1]
+                self.spent_money -= i[1]
+                sellers_purchases.remove(i)
+        car_market.return_car(seller_name=seller_name, car_name=car_name)
+        if isinstance(seller_name, Seller):
+            seller_name.return_car(car_name=car_name)
+        print(f'buyers money - {self.__money}, spent money - {self.spent_money}, bought cars - {self.bought_cars}')
+
 
     def change_money(self, price):
         return self.__change_money(price=price)
